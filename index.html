@@ -22,6 +22,67 @@
                     <h1>Hello World</h1>
                 </div>
             </div>
+
+            <!-- Button -->
+            <div class="row">
+                <div class="col">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#popupFormDiv">Nút</button>
+                </div>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="popupFormDiv" tabindex="-1" aria-labelledby="popupFormLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="popupFormLabel">Thông tin khách hàng</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form class="row row-cols-1 g-3" id="popupForm">
+                                <!-- Họ và tên -->
+                                <div class="col">
+                                    <label class="form-label" for="name">Họ và tên</label>
+                                    <input class="form-control" type="text" name="name" id="name">
+                                </div>
+                                <!-- Email -->
+                                <div class="col">
+                                    <label class="form-label" for="email">Email</label>
+                                    <input class="form-control" type="text" name="email" id="email">
+                                </div>
+                                <!-- Số điện thoại-->
+                                <div class="col">
+                                    <label class="form-label" for="phone">Số điện thoại</label>
+                                    <input class="form-control" type="text" name="phone" id="phone">
+                                </div>
+                                <!-- Địa chỉ nơi ở hiện tại -->
+                                <div class="col">
+                                    <label class="form-label" for="address">Địa chỉ nơi ở hiện tại</label>
+                                    <input class="form-control" type="text" name="address" id="address">
+                                    <span class="form-text">Vui lòng nhập đầy đủ Tỉnh, Thành phố , Quận Huyện.</span>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                            <button type="submit" class="btn btn-primary" id="submitBtn" data-bs-dismiss="modal">Gửi</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                // Document on ready
+                $(() => {
+                    $("#submitBtn").click(() => {
+                        // Submit form to Google Sheet
+                        let action = "https://script.google.com/macros/s/AKfycbwDa2UzPOllNmltgG7UB67QguJhZ0FTp5kG6uyzEMumLCcuxVXnHt9cZXtt9M4sRdHBiQ/exec";
+                        $.post(action, $("#popupForm").serialize(), (data, status, xhr) => {
+                            // TODO: Download the PDF file
+                        });
+                    });
+                });
+            </script>
         </div>
     </body>
 </html>
