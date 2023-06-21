@@ -58,13 +58,14 @@ $(() => {
         // Return if failed to validate form
         if (!valid)
             return;
-        
-        // Close form modal and open alert modal
-        $("#popupFormModal").modal("toggle");
 
         // Submit form to Google Sheet
         let action = "https://script.google.com/macros/s/AKfycby7QPqjcpl6m6bFFFsMuqnBdXm6FIlm-N1wDmXt1QbDXdAnbtrzH6nvNvLwuiIFzgwBFA/exec";
         $.post(action, $("#popupForm").serialize(), (data, status, xhr) => {
         });
+        
+        // Close form modal and open alert modal
+        $("#popupFormModal").modal("toggle");
+        $("#alertModal").modal("toggle");
     });
 });
