@@ -94,9 +94,8 @@
                 $(() => {
                     $("#submitBtn").click(() => {
                         // Submit form to Google Sheet
-                        let action = "https://script.google.com/macros/s/AKfycbwDa2UzPOllNmltgG7UB67QguJhZ0FTp5kG6uyzEMumLCcuxVXnHt9cZXtt9M4sRdHBiQ/exec";
+                        let action = "https://script.google.com/macros/s/AKfycby7QPqjcpl6m6bFFFsMuqnBdXm6FIlm-N1wDmXt1QbDXdAnbtrzH6nvNvLwuiIFzgwBFA/exec";
                         $.post(action, $("#popupForm").serialize(), (data, status, xhr) => {
-                            // TODO: Download the PDF file
                         });
                     });
                 });
