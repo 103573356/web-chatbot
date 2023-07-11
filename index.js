@@ -60,7 +60,7 @@ $(() => {
             return;
 
         // Submit form to Google Sheet
-        let action = "https://script.google.com/macros/s/AKfycbxgow6g2ZXN-lrcjF11bK7AW5ljLvO2zZOpjX4YS5ke2XjHhu2Dy-7NdKTz2giXy-fvYw/exec";
+        let action = "https://script.google.com/macros/s/AKfycbwfx71CZaEyPJcaXZEwofnEnUWlnsQjN1gI4qkajk2AZtoK88p39RmGKzOH8hsK8w/exec";
         $.post(action, $("#popupForm").serialize(), (data, status, xhr) => {
         });
         
