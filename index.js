@@ -1,4 +1,8 @@
 "use strict";
+
+// Link to Google sheet
+const sheetUrl = "https://script.google.com/macros/s/AKfycbwfx71CZaEyPJcaXZEwofnEnUWlnsQjN1gI4qkajk2AZtoK88p39RmGKzOH8hsK8w/exec";
+
 const errNameEmpty = "Xin điền tên vào chỗ trống.";
 const errPhoneEmpty = "Xin điền số điện thoại vào chỗ trống.";
 const errEmailEmpty = "Xin điền email vào chỗ trống.";
@@ -60,8 +64,7 @@ $(() => {
             return;
 
         // Submit form to Google Sheet
-        let action = "https://script.google.com/macros/s/AKfycbwfx71CZaEyPJcaXZEwofnEnUWlnsQjN1gI4qkajk2AZtoK88p39RmGKzOH8hsK8w/exec";
-        $.post(action, $("#popupForm").serialize(), (data, status, xhr) => {
+        $.post(sheetUrl, $("#popupForm").serialize(), (data, status, xhr) => {
         });
         
         // Close form modal and open alert modal
